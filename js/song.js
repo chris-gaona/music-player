@@ -20,10 +20,8 @@ Song.prototype.stop = function () {
 
 //add to html
 Song.prototype.toHTML = function () {
-  var htmlString = '<div class="player-artist">';
-  htmlString += '<img src="' + this.image + '">';
-  htmlString += '<p>' + this.artist + ' ';
-  htmlString += '<span>' + this.title + '</span></p>';
-  htmlString += '</div>';
+  var htmlString = '<img src="' + this.image + '">';
+  htmlString += '<p>' + this.title + ' ';
+  htmlString += '<span>' + this.artist + '</span></p>';
   return htmlString;
 };
