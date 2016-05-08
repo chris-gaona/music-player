@@ -4,10 +4,14 @@ var playlist = new Playlist();
 //add new songs to song.js
 var hereComesTheSun = new Song("Here Comes the Sun", "The Beatles", "https://placeimg.com/640/480/any", "2:54");
 var walkingOnSunshine = new Song("Walking on Sunshine", "Katrina and the Waves", "https://placeimg.com/640/480/any", "3:43");
+var anotherSong = new Song("Another Song That's Good", "Magic Mike", "https://placeimg.com/640/480/any", "2:54");
+var didYouKnowAbout = new Song("Did You Know About Me?", "Shades of Gray", "https://placeimg.com/640/480/any", "3:43");
 
 //add newly created songs to playlist songs array
 playlist.add(hereComesTheSun);
 playlist.add(walkingOnSunshine);
+playlist.add(anotherSong);
+playlist.add(didYouKnowAbout);
 
 //get element to place html string
 var playlistElement = document.getElementById('player-container');
@@ -39,5 +43,11 @@ var stopButton = function() {
 var nextButton = document.getElementById('next');
 nextButton.onclick = function() {
   playlist.next();
+  playlist.renderInElement(playlistElement);
+}
+
+var prevButton = document.getElementById('previous');
+prevButton.onclick = function() {
+  playlist.previous();
   playlist.renderInElement(playlistElement);
 }

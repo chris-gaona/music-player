@@ -31,6 +31,13 @@ Playlist.prototype.next = function () {
   this.play();
 };
 
+//previous song
+Playlist.prototype.previous = function () {
+  this.stop();
+  this.nowPlayingIndex--;
+  this.play()
+};
+
 //render html string in html page
 Playlist.prototype.renderInElement = function (element) {
   element.innerHTML = this.songs[this.nowPlayingIndex].toHTML();
