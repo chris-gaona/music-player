@@ -21,7 +21,8 @@ Song.prototype.stop = function () {
 //add to html
 Song.prototype.toHTML = function () {
   var htmlString = '<img src="' + this.image + '">';
-  htmlString += '<p>' + this.title + ' ';
-  htmlString += '<span>' + this.artist + '</span></p>';
+  htmlString += '<p>' + this.title + ' - '
+  htmlString += '<span>' + this.artist + '</span>';
+  htmlString += '<a href="#">Lyrics</a></p>';
   return htmlString;
 };
