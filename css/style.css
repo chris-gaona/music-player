@@ -1,0 +1,141 @@
+@import url(http://fonts.googleapis.com/css?family=Lato:100,400);
+
+html {
+  height: 100%;
+  font: 11px 'Lato', sans-serif;
+  background-color: #88c388;
+}
+
+h1 {
+  text-align: center;
+  color: #fff;
+}
+h1 small {
+  color: rgba(0, 0, 0, 0.3);
+}
+h1 a {
+  color: #26735e;
+  text-decoration: none;
+}
+h1 a:hover {
+  text-decoration: underline;
+}
+
+.player {
+  width: 320px;
+  margin: 3% auto;
+  background: #fafafa;
+  -moz-box-shadow: rgba(26, 77, 63, 0.4) 0 0 20px 0;
+  -webkit-box-shadow: rgba(26, 77, 63, 0.4) 0 0 20px 0;
+  box-shadow: rgba(26, 77, 63, 0.4) 0 0 20px 0;
+  cursor: default;
+}
+.player .player-artist {
+  position: relative;
+  height: 160px;
+  overflow: hidden;
+}
+.player .player-artist img {
+  width: 100%;
+  margin: -25px 0 0;
+}
+.player .player-artist p {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  margin: 0;
+  padding: 10px;
+  background: rgba(0, 0, 0, 0.7);
+  color: #fff;
+}
+.player .player-controls {
+  padding: 5px 0;
+  overflow: hidden;
+  *zoom: 1;
+}
+.player .player-controls a {
+  display: block;
+  width: 50px;
+  height: 40px;
+  font-size: 15px;
+  line-height: 40px;
+  text-align: center;
+  color: #bbb;
+  text-decoration: none;
+  float: left;
+}
+.player .player-controls a.play {
+  font-size: 20px;
+  color: #999;
+}
+.player .player-controls a:first-child {
+  border-right: 1px solid #ddd;
+  margin-right: 34px;
+}
+.player .player-controls a:last-child {
+  border-left: 1px solid #ddd;
+  margin-left: 34px;
+}
+.player .player-controls a:hover {
+  color: #444;
+}
+.player .player-controls a:active {
+  color: #85c2e0;
+}
+.player .player-tracking {
+  padding: 10px;
+  background: #e6e6e6;
+  color: #888;
+}
+.player .player-tracking span {
+  display: inline-block;
+  vertical-align: middle;
+  *vertical-align: auto;
+  *zoom: 1;
+  *display: inline;
+  position: relative;
+  padding: 0 5px;
+}
+.player .player-tracking .player-tracking-bar {
+  position: relative;
+  top: 1px;
+  width: 212px;
+  height: 6px;
+  border-radius: 3px;
+  background: #cccccc;
+  -moz-box-shadow: rgba(0, 0, 0, 0.1) 0 0 3px 1px inset;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.1) 0 0 3px 1px inset;
+  box-shadow: rgba(0, 0, 0, 0.1) 0 0 3px 1px inset;
+}
+.player .player-tracking .player-tracking-bar:before {
+  display: none;
+  content: '02:12';
+  position: absolute;
+  top: 10px;
+  left: 78px;
+  padding: 4px 8px;
+  background: #fff;
+  font-size: 10px;
+  color: #aaa;
+  -moz-box-shadow: rgba(0, 0, 0, 0.1) 0 0 3px 1px;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.1) 0 0 3px 1px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0 0 3px 1px;
+}
+.player .player-tracking .player-tracking-bar:after {
+  display: block;
+  content: ' ';
+  position: absolute;
+  top: 0px;
+  left: 0;
+  width: 100px;
+  height: 6px;
+  border-radius: 3px;
+  background: #85c2e0;
+}
+.player .player-tracking .player-tracking-bar:hover {
+  cursor: pointer;
+}
+.player .player-tracking .player-tracking-bar:hover:before {
+  display: block;
+}
