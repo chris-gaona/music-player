@@ -17,12 +17,23 @@ playlist.renderInElement(playlistElement);
 
 var playButton = document.getElementById('play');
 playButton.onclick = function() {
+  //creates toggle effect for play & pause icons
+  if (playButton.children[0].classList.contains('fa-play')) {
+    playButton.children[0].classList.remove('fa-play');
+    playButton.children[0].className = 'fa fa-pause';
+  } else {
+    playButton.children[0].classList.remove('fa-pause');
+    playButton.children[0].className = 'fa fa-play';
+  }
+
   playlist.play();
   playlist.renderInElement(playlistElement);
 }
 
 var stopButton = function() {
+  stopButton.onclick = function() {
 
+  }
 }
 
 var nextButton = document.getElementById('next');
