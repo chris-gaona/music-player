@@ -2,7 +2,7 @@
 var Playlist = function() {
   this.songs = [];
   this.nowPlayingIndex = 0;
-}
+};
 
 //add songs to playlist
 Playlist.prototype.add = function (song) {
@@ -16,30 +16,38 @@ Playlist.prototype.play = function () {
 };
 
 //stop song
-Playlist.prototype.stop = function () {
+Playlist.prototype.pause = function () {
   var currentSong = this.songs[this.nowPlayingIndex];
-  currentSong.stop();
+  currentSong.pause();
 };
 
 //next song
 Playlist.prototype.next = function () {
-  this.stop();
+  this.pause();
   this.nowPlayingIndex++;
   if (this.nowPlayingIndex >= this.songs.length) {
     this.nowPlayingIndex = 0;
   }
   this.play();
+  console.log('Next song!');
 };
 
 //previous song
 Playlist.prototype.previous = function () {
-  this.stop();
+  this.pause();
+  if (this.nowPlayingIndex === 0) {
+    this.nowPlayingIndex = this.songs.length;
+  }
   this.nowPlayingIndex--;
-  this.play()
+  this.play();
+  console.log('Previous song!');
 };
 
 //render html string in html page
 Playlist.prototype.renderInElement = function (element) {
   element.innerHTML = this.songs[this.nowPlayingIndex].toHTML();
+};
 
+Playlist.prototype.renderDurationInElement = function (element) {
+  element.innerHTML = this.songs[this.nowPlayingIndex].durationHTML();
 };
