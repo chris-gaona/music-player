@@ -31,7 +31,7 @@ Song.prototype.toHTML = function () {
 
 Song.prototype.durationHTML = function () {
   var htmlString = '<span class="player-tracking-start">00:00';
-  htmlString += '</span><span class="player-tracking-bar"><span class="player-inner-bar"></span></span>';
+  htmlString += '</span><span class="player-tracking-bar"><span id="player-inner-bar"></span></span>';
   htmlString += '<span class="player-tracking-end">';
   htmlString += this.duration + '</span>';
   return htmlString;

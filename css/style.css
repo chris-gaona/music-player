@@ -134,7 +134,22 @@ h1 a:hover {
   box-shadow: rgba(0, 0, 0, 0.1) 0 0 3px 1px inset;
 }
 
-.player .player-tracking .player-tracking-bar .player-inner-bar {
+.player .player-tracking .player-tracking-bar:before {
+  display: none;
+  content: '02:12';
+  position: absolute;
+  top: 10px;
+  left: 78px;
+  padding: 4px 8px;
+  background: #fff;
+  font-size: 10px;
+  color: #aaa;
+  -moz-box-shadow: rgba(0, 0, 0, 0.1) 0 0 3px 1px;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.1) 0 0 3px 1px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0 0 3px 1px;
+}
+
+.player .player-tracking .player-tracking-bar #player-inner-bar {
   display: block;
   position: absolute;
   top: 0;
@@ -149,4 +164,8 @@ h1 a:hover {
 
 .player .player-tracking .player-tracking-bar:hover {
   cursor: pointer;
+}
+
+.player .player-tracking .player-tracking-bar:hover:before {
+  display: block;
 }

@@ -23,11 +23,30 @@ playlist.renderDurationInElement(durationElement);
 
 var playButton = document.getElementById('play');
 playButton.onclick = function() {
+
+  var timer;
+
+  function move() {
+    var elem = document.getElementById("player-inner-bar");
+    var width = 1;
+    var timer = setInterval(progress, 10);
+    function progress() {
+      if (width >= 100) {
+        clearInterval(timer);
+      } else {
+        width++;
+        elem.style.width = width + '%';
+        // document.getElementById("label").innerHTML = width * 1  + '%';
+      }
+    }
+  }
+
   //creates toggle effect for play & pause icons
   if (playButton.children[0].classList.contains('fa-play')) {
     playButton.children[0].classList.remove('fa-play');
     playButton.children[0].className = 'fa fa-pause';
     playlist.play();
+    move();
     // playlist.renderInElement(playlistElement);
   } else {
     playButton.children[0].classList.remove('fa-pause');
@@ -35,27 +54,6 @@ playButton.onclick = function() {
     playlist.pause();
     // playlist.renderInElement(playlistElement);
   }
-
-  var timer = 0,
-      perc = 0,
-      timeTotal = 2500,
-      timeCount = 1;
-
-  function updateProgress(percentage) {
-      var x = (percentage/timeTotal)*100,
-          y = x.toFixed(3);
-      $('.player-inner-bar').css("width", x + "%");
-      // $('#pbar_innertext').text(y + "%");
-  }
-
-  function animateUpdate() {
-      if(perc < timeTotal) {
-          perc++;
-          updateProgress(perc);
-          timer = setTimeout(animateUpdate, timeCount);
-      }
-  }
-  animateUpdate();
 }
 
 var nextButton = document.getElementById('next');
