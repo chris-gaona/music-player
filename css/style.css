@@ -49,7 +49,7 @@ h1 a:hover {
   position: absolute;
   bottom: 0;
   left: 0;
-  width: 95%;
+  width: 94%;
   margin: 0;
   padding: 10px;
   background: rgba(0, 0, 0, 0.7);
@@ -125,7 +125,7 @@ h1 a:hover {
 .player .player-tracking .player-tracking-bar {
   position: relative;
   top: 1px;
-  width: 212px;
+  width: 210px;
   height: 6px;
   border-radius: 3px;
   background: #cccccc;
@@ -134,37 +134,19 @@ h1 a:hover {
   box-shadow: rgba(0, 0, 0, 0.1) 0 0 3px 1px inset;
 }
 
-.player .player-tracking .player-tracking-bar:before {
-  display: none;
-  content: '02:12';
-  position: absolute;
-  top: 10px;
-  left: 78px;
-  padding: 4px 8px;
-  background: #fff;
-  font-size: 10px;
-  color: #aaa;
-  -moz-box-shadow: rgba(0, 0, 0, 0.1) 0 0 3px 1px;
-  -webkit-box-shadow: rgba(0, 0, 0, 0.1) 0 0 3px 1px;
-  box-shadow: rgba(0, 0, 0, 0.1) 0 0 3px 1px;
-}
-
-.player .player-tracking .player-tracking-bar:after {
+.player .player-tracking .player-tracking-bar .player-inner-bar {
   display: block;
-  content: ' ';
   position: absolute;
-  top: 0px;
+  top: 0;
   left: 0;
-  width: 100px;
+  width: 0;
   height: 6px;
+  padding: 0;
   border-radius: 3px;
   background: #85c2e0;
+  z-index: 1000;
 }
 
 .player .player-tracking .player-tracking-bar:hover {
   cursor: pointer;
-}
-
-.player .player-tracking .player-tracking-bar:hover:before {
-  display: block;
 }

@@ -36,26 +36,26 @@ playButton.onclick = function() {
     // playlist.renderInElement(playlistElement);
   }
 
-  // var start = new Date();
-  // var maxTime = 835000;
-  // var timeoutVal = Math.floor(maxTime/100);
-  // animateUpdate();
-  //
-  // function updateProgress(percentage) {
-  //   $('#pbar_innerdiv').css("width", percentage + "%");
-  //   $('#pbar_innertext').text(percentage + "%");
-  // }
-  //
-  // function animateUpdate() {
-  //   var now = new Date();
-  //   var timeDiff = now.getTime() - start.getTime();
-  //   var perc = Math.round((timeDiff/maxTime)*100);
-  //   console.log(perc);
-  //     if (perc <= 100) {
-  //      updateProgress(perc);
-  //      setTimeout(animateUpdate, timeoutVal);
-  //     }
-  // }
+  var timer = 0,
+      perc = 0,
+      timeTotal = 2500,
+      timeCount = 1;
+
+  function updateProgress(percentage) {
+      var x = (percentage/timeTotal)*100,
+          y = x.toFixed(3);
+      $('.player-inner-bar').css("width", x + "%");
+      // $('#pbar_innertext').text(y + "%");
+  }
+
+  function animateUpdate() {
+      if(perc < timeTotal) {
+          perc++;
+          updateProgress(perc);
+          timer = setTimeout(animateUpdate, timeCount);
+      }
+  }
+  animateUpdate();
 }
 
 var nextButton = document.getElementById('next');
