@@ -14,58 +14,66 @@ playlist.add(anotherSong);
 playlist.add(didYouKnowAbout);
 
 //get element to place html string
-var playlistElement = document.getElementById('player-container');
-var durationElement = document.getElementById('duration');
+var playlistElement = $('#player-container');
+var durationElement = $('#duration');
 
 //pass into playlist.js the element to render in
 playlist.renderInElement(playlistElement);
 playlist.renderDurationInElement(durationElement);
 
-var playButton = document.getElementById('play');
-playButton.onclick = function() {
-
-  var timer;
-
-  function move() {
-    var elem = document.getElementById("player-inner-bar");
-    var width = 1;
-    var timer = setInterval(progress, 10);
-    function progress() {
-      if (width >= 100) {
-        clearInterval(timer);
-      } else {
-        width++;
-        elem.style.width = width + '%';
-        // document.getElementById("label").innerHTML = width * 1  + '%';
-      }
-    }
-  }
-
+var playButton = $('#play');
+playButton.on('click', function() {
   //creates toggle effect for play & pause icons
-  if (playButton.children[0].classList.contains('fa-play')) {
-    playButton.children[0].classList.remove('fa-play');
-    playButton.children[0].className = 'fa fa-pause';
+  if (playButton.children().hasClass('fa-play')) {
+    console.log("play");
+    playButton.children().removeClass('fa-play');
+    playButton.children().addClass('fa fa-pause');
     playlist.play();
     move();
     // playlist.renderInElement(playlistElement);
-  } else {
-    playButton.children[0].classList.remove('fa-pause');
-    playButton.children[0].className = 'fa fa-play';
+  } else if (playButton.children().hasClass('fa-pause')) {
+    console.log("pause");
+    playButton.children().removeClass('fa-pause');
+    playButton.children().addClass('fa fa-play');
     playlist.pause();
+    stop();
     // playlist.renderInElement(playlistElement);
+  }
+});
+
+var timer;
+
+function move() {
+  var elem = $('#player-inner-bar');
+  var width = 1;
+  var timer = setInterval(progress, 50);
+  function progress() {
+    if (width >= 100) {
+      clearInterval(timer);
+    } else {
+      width++;
+      elem.css('width', width + '%');
+      // document.getElementById("label").innerHTML = width * 1  + '%';
+    }
   }
 }
 
-var nextButton = document.getElementById('next');
-nextButton.onclick = function() {
+function stop() {
+  clearInterval(timer);
+}
+
+var nextButton = $('#next');
+nextButton.on('click', function() {
   playlist.next();
   playlist.renderInElement(playlistElement);
   playlist.renderDurationInElement(durationElement);
-}
+  move();
+});
 
-var prevButton = document.getElementById('previous');
-prevButton.onclick = function() {
+var prevButton = $('#previous');
+prevButton.on('click', function() {
   playlist.previous();
   playlist.renderInElement(playlistElement);
   playlist.renderDurationInElement(durationElement);
-}
+  move();
+});

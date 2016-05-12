@@ -45,9 +45,9 @@ Playlist.prototype.previous = function () {
 
 //render html string in html page
 Playlist.prototype.renderInElement = function (element) {
-  element.innerHTML = this.songs[this.nowPlayingIndex].toHTML();
+  element.html(this.songs[this.nowPlayingIndex].toHTML());
 };
 
 Playlist.prototype.renderDurationInElement = function (element) {
-  element.innerHTML = this.songs[this.nowPlayingIndex].durationHTML();
+  element.html(this.songs[this.nowPlayingIndex].durationHTML());
 };
