@@ -36,3 +36,8 @@ Song.prototype.durationHTML = function () {
   htmlString += this.duration + '</span>';
   return htmlString;
 };
+
+// Song.prototype.toSeconds = function () { 
+//   var hms = this.split(':');
+//   return (+hms[0]) * 60 * 60 + (+hms[1]) * 60 + (+hms[2] || 0);
+// }
