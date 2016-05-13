@@ -150,16 +150,14 @@ h1 a:hover {
 }
 
 .player .player-tracking .player-tracking-bar #player-inner-bar {
-  display: block;
   position: absolute;
   top: 0;
   left: 0;
-  width: 0;
+  width: 0%;
   height: 6px;
   padding: 0;
   border-radius: 3px;
   background: #85c2e0;
-  z-index: 1000;
 }
 
 .player .player-tracking .player-tracking-bar:hover {

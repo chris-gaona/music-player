@@ -30,14 +30,13 @@ playButton.on('click', function() {
     playButton.children().addClass('fa fa-pause');
     playlist.play();
     move();
-    // playlist.renderInElement(playlistElement);
+
   } else if (playButton.children().hasClass('fa-pause')) {
     console.log("pause");
     playButton.children().removeClass('fa-pause');
     playButton.children().addClass('fa fa-play');
     playlist.pause();
     stop();
-    // playlist.renderInElement(playlistElement);
   }
 });
 
@@ -46,14 +45,13 @@ var timer;
 function move() {
   var elem = $('#player-inner-bar');
   var width = 1;
-  var timer = setInterval(progress, 50);
+  timer = setInterval(progress, 50);
   function progress() {
     if (width >= 100) {
       clearInterval(timer);
     } else {
       width++;
       elem.css('width', width + '%');
-      // document.getElementById("label").innerHTML = width * 1  + '%';
     }
   }
 }
