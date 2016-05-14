@@ -107,6 +107,10 @@ nextButton.on('click', function() {
   playlist.renderDurationInElement(durationElement);
   flag = undefined;
   width = 0;
+  if (playButton.children().hasClass('fa-play')) {
+    playButton.children().removeClass('fa-play');
+    playButton.children().addClass('fa fa-pause');
+  }
   move();
 });
 
@@ -117,5 +121,9 @@ prevButton.on('click', function() {
   playlist.renderDurationInElement(durationElement);
   flag = undefined;
   width = 0;
+  if (playButton.children().hasClass('fa-play')) {
+    playButton.children().removeClass('fa-play');
+    playButton.children().addClass('fa fa-pause');
+  }
   move();
 });
