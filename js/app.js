@@ -2,10 +2,10 @@
 var playlist = new Playlist();
 
 //add new songs to song.js
-var hereComesTheSun = new Song("Here Comes the Sun", "The Beatles", "https://placeimg.com/640/480/any", "01:54");
-var walkingOnSunshine = new Song("Walking on Sunshine", "Katrina and the Waves", "https://placeimg.com/640/480/any", "03:43");
-var anotherSong = new Song("Another Song That's Good", "Magic Mike", "https://placeimg.com/640/480/any", "03:24");
-var didYouKnowAbout = new Song("Did You Know About Me?", "Shades of Gray", "https://placeimg.com/640/480/any", "04:03");
+var hereComesTheSun = new Song("Here Comes the Sun", "The Beatles", "https://placeimg.com/640/480/any", "songs/Chris Tomlin - Good Good Father (Audio).mp3");
+var walkingOnSunshine = new Song("Walking on Sunshine", "Katrina and the Waves", "https://placeimg.com/640/480/any", "songs/Chris Tomlin - Good Good Father (Audio).mp3");
+var anotherSong = new Song("Another Song That's Good", "Magic Mike", "https://placeimg.com/640/480/any", "songs/Chris Tomlin - Good Good Father (Audio).mp3");
+var didYouKnowAbout = new Song("Did You Know About Me?", "Shades of Gray", "https://placeimg.com/640/480/any", "songs/Chris Tomlin");
 
 //add newly created songs to playlist songs array
 playlist.add(hereComesTheSun);
@@ -20,10 +20,12 @@ playlist.add(didYouKnowAbout);
 //get element to place html string
 var playlistElement = $('#player-container');
 var durationElement = $('#duration');
+var audioElement = $('#audio-tag-container');
 
 //pass into playlist.js the element to render in
 playlist.renderInElement(playlistElement);
 playlist.renderDurationInElement(durationElement);
+playlist.renderAudioTag(audioElement);
 
 var flag;
 var timer;
@@ -105,6 +107,7 @@ nextButton.on('click', function() {
   playlist.next();
   playlist.renderInElement(playlistElement);
   playlist.renderDurationInElement(durationElement);
+  playlist.renderAudioTag(audioElement);
   flag = undefined;
   width = 0;
   if (playButton.children().hasClass('fa-play')) {
@@ -119,6 +122,7 @@ prevButton.on('click', function() {
   playlist.previous();
   playlist.renderInElement(playlistElement);
   playlist.renderDurationInElement(durationElement);
+  playlist.renderAudioTag(audioElement);
   flag = undefined;
   width = 0;
   if (playButton.children().hasClass('fa-play')) {
