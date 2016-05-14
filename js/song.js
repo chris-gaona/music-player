@@ -35,26 +35,26 @@ Song.prototype.addAudio = function () {
   return htmlString;
 };
 
-// TODO: WILL CHANGE
-Song.prototype.durationHTML = function () {
-  var htmlString = '<span class="player-tracking-start">00:00';
-  htmlString += '</span><span class="player-tracking-bar"><span id="player-inner-bar"></span></span>';
-  htmlString += '<span class="player-tracking-end">';
-  htmlString += this.duration + '</span>';
-  return htmlString;
-};
+// TODO: WILL PROBABLY REMOVE
+// Song.prototype.durationHTML = function () {
+//   var htmlString = '<span class="player-tracking-start">00:00</span>';
+//   htmlString += '<progress id="seekbar" value="0" max="1"></progress>';
+//   htmlString += '<span class="player-tracking-end">';
+//   htmlString += this.duration + '</span>';
+//   return htmlString;
+// };
 
-Song.prototype.toSeconds = function () {
-  var ms = this.split(':');
-  return (+ms[0]) * 60 + (+ms[1] || 0);
-}
-
-Song.prototype.toMMSS = function () {
-    var sec_num = parseInt(this, 10); // don't forget the second param
-    var minutes = Math.floor((sec_num - (hours * 3600)) / 60);
-    var seconds = sec_num - (hours * 3600) - (minutes * 60);
-
-    if (minutes < 10) {minutes = "0" + minutes;}
-    if (seconds < 10) {seconds = "0" + seconds;}
-    return minutes + ':' + seconds;
-}
+// Song.prototype.toSeconds = function () {
+//   var ms = this.split(':');
+//   return (+ms[0]) * 60 + (+ms[1] || 0);
+// }
+//
+// Song.prototype.toMMSS = function () {
+//     var sec_num = parseInt(this, 10); // don't forget the second param
+//     var minutes = Math.floor((sec_num - (hours * 3600)) / 60);
+//     var seconds = sec_num - (hours * 3600) - (minutes * 60);
+//
+//     if (minutes < 10) {minutes = "0" + minutes;}
+//     if (seconds < 10) {seconds = "0" + seconds;}
+//     return minutes + ':' + seconds;
+// }

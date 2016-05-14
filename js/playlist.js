@@ -9,12 +9,15 @@ Playlist.prototype.add = function (song) {
   this.songs.push(song);
 };
 
+// TODO: WILL PROBABLY REMOVE
 //play song
 Playlist.prototype.play = function () {
-  var currentSong = this.songs[this.nowPlayingIndex];
-  currentSong.play();
+  // var currentSong = this.songs[this.nowPlayingIndex];
+  // currentSong.play();
+  // element.play();
 };
 
+// TODO: WILL PROBABLY REMOVE
 //stop song
 Playlist.prototype.pause = function () {
   var currentSong = this.songs[this.nowPlayingIndex];
@@ -48,9 +51,9 @@ Playlist.prototype.renderInElement = function (element) {
   element.html(this.songs[this.nowPlayingIndex].toHTML());
 };
 
-Playlist.prototype.renderDurationInElement = function (element) {
-  element.html(this.songs[this.nowPlayingIndex].durationHTML());
-};
+// Playlist.prototype.renderDurationInElement = function (element) {
+//   element.html(this.songs[this.nowPlayingIndex].durationHTML());
+// };
 
 Playlist.prototype.renderAudioTag = function (element) {
   element.html(this.songs[this.nowPlayingIndex].addAudio());
