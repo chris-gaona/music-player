@@ -1,15 +1,11 @@
-//create playlist
-var playlist = new Playlist();
-
 //add new songs to song.js
-var goodGoodFather = new Song("Good Good Father", "Chris Tomlin", "https://placeimg.com/640/480/any", "songs/Chris Tomlin - Good Good Father (Audio).mp3");
-var forgiven = new Song("Forgiven", "Jesus Culture", "https://placeimg.com/640/480/any", "songs/03 Forgiven.mp3");
-var comeAway = new Song("Come Away", "Jesus Culture", "https://placeimg.com/640/480/any", "songs/01 Come Away _ Let Me In.mp3");
+var playlistArray = [
+  new Song("Good Good Father", "Chris Tomlin", "https://placeimg.com/640/480/any", "songs/Chris Tomlin - Good Good Father (Audio).mp3"),
+  new Song("Forgiven", "Jesus Culture", "https://placeimg.com/640/480/any", "songs/03 Forgiven.mp3"),
+  new Song("Come Away", "Jesus Culture", "https://placeimg.com/640/480/any", "songs/01 Come Away _ Let Me In.mp3")
+];
 
-//add newly created songs to playlist songs array
-playlist.add(goodGoodFather);
-playlist.add(forgiven);
-playlist.add(comeAway);
+var playlist = new Playlist(playlistArray);
 
 //get element to place html string
 var playlistElement = $('#player-container');

@@ -1,13 +1,8 @@
 //create playlist object
-var Playlist = function() {
-  this.songs = [];
+function Playlist(songs) {
+  this.songs = songs;
   this.nowPlayingIndex = 0;
-};
-
-//add songs to playlist
-Playlist.prototype.add = function (song) {
-  this.songs.push(song);
-};
+}
 
 // TODO: WILL PROBABLY REMOVE
 //play song
