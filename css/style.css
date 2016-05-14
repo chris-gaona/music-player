@@ -122,19 +122,21 @@ h1 a:hover {
   padding: 0 5px;
 }
 
-.player .player-tracking .player-tracking-bar {
+.player .player-tracking #seekbar {
+  /*-webkit-appearance: none;
+  appearance: none;*/
   position: relative;
   top: 1px;
-  width: 210px;
-  height: 6px;
+  width: 220px;
+  /*height: 6px;
   border-radius: 3px;
   background: #cccccc;
   -moz-box-shadow: rgba(0, 0, 0, 0.1) 0 0 3px 1px inset;
   -webkit-box-shadow: rgba(0, 0, 0, 0.1) 0 0 3px 1px inset;
-  box-shadow: rgba(0, 0, 0, 0.1) 0 0 3px 1px inset;
+  box-shadow: rgba(0, 0, 0, 0.1) 0 0 3px 1px inset;*/
 }
 
-.player .player-tracking .player-tracking-bar:before {
+.player .player-tracking #seekbar:before {
   display: none;
   content: '02:12';
   position: absolute;
@@ -149,7 +151,7 @@ h1 a:hover {
   box-shadow: rgba(0, 0, 0, 0.1) 0 0 3px 1px;
 }
 
-.player .player-tracking .player-tracking-bar #player-inner-bar {
+/*.player .player-tracking .player-tracking-bar #player-inner-bar {
   position: absolute;
   top: 0;
   left: 0;
@@ -158,12 +160,12 @@ h1 a:hover {
   padding: 0;
   border-radius: 3px;
   background: #85c2e0;
-}
+}*/
 
-.player .player-tracking .player-tracking-bar:hover {
+.player .player-tracking #seekbar:hover {
   cursor: pointer;
 }
 
-.player .player-tracking .player-tracking-bar:hover:before {
+.player .player-tracking #seekbar:hover:before {
   display: block;
 }

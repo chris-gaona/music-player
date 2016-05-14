@@ -1,24 +1,22 @@
 //create playlist object
-var Playlist = function() {
-  this.songs = [];
+function Playlist(songs) {
+  this.songs = songs;
   this.nowPlayingIndex = 0;
-};
-
-//add songs to playlist
-Playlist.prototype.add = function (song) {
-  this.songs.push(song);
-};
+}
 
 //play song
 Playlist.prototype.play = function () {
-  var currentSong = this.songs[this.nowPlayingIndex];
-  currentSong.play();
+  // var currentSong = this.songs[this.nowPlayingIndex];
+  // currentSong.play();
+  // console.log(currentSong.duration);
+  console.log('Playing!');
 };
 
 //stop song
 Playlist.prototype.pause = function () {
-  var currentSong = this.songs[this.nowPlayingIndex];
-  currentSong.pause();
+  // var currentSong = this.songs[this.nowPlayingIndex];
+  // currentSong.pause();
+  console.log('Paused!');
 };
 
 //next song
@@ -48,6 +46,6 @@ Playlist.prototype.renderInElement = function (element) {
   element.html(this.songs[this.nowPlayingIndex].toHTML());
 };
 
-Playlist.prototype.renderDurationInElement = function (element) {
-  element.html(this.songs[this.nowPlayingIndex].durationHTML());
+Playlist.prototype.renderAudioTag = function (element) {
+  element.html(this.songs[this.nowPlayingIndex].addAudio());
 };
