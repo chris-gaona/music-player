@@ -7,12 +7,14 @@ var Song = function(title, artist, image, duration) {
   this.isPlaying = false;
 }
 
+// TODO: WILL PROBABLY REMOVE
 //play function
 Song.prototype.play = function () {
   this.isPlaying = true;
   console.log('Playing!');
 }
 
+// TODO: WILL PROBABLY REMOVE
 //stop function
 Song.prototype.pause = function () {
   this.isPlaying = false;
@@ -28,6 +30,7 @@ Song.prototype.toHTML = function () {
   return htmlString;
 };
 
+// TODO: WILL CHANGE
 Song.prototype.durationHTML = function () {
   var htmlString = '<span class="player-tracking-start">00:00';
   htmlString += '</span><span class="player-tracking-bar"><span id="player-inner-bar"></span></span>';
