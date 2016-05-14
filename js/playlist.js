@@ -4,18 +4,15 @@ function Playlist(songs) {
   this.nowPlayingIndex = 0;
 }
 
-// TODO: WILL PROBABLY REMOVE
 //play song
 Playlist.prototype.play = function () {
-  // var currentSong = this.songs[this.nowPlayingIndex];
-  // currentSong.play();
-  // element.play();
+  var currentSong = this.songs[this.nowPlayingIndex].song;
+  currentSong.play();
 };
 
-// TODO: WILL PROBABLY REMOVE
 //stop song
 Playlist.prototype.pause = function () {
-  var currentSong = this.songs[this.nowPlayingIndex];
+  var currentSong = this.songs[this.nowPlayingIndex].song;
   currentSong.pause();
 };
 

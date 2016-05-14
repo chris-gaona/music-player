@@ -3,7 +3,7 @@ var Song = function(title, artist, image, song) {
   this.title = title;
   this.artist = artist;
   this.image = image;
-  this.song = song;
+  this.song = new Audio(song);
   this.isPlaying = false;
 }
 
