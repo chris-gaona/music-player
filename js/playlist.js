@@ -51,10 +51,6 @@ Playlist.prototype.renderInElement = function (element) {
   element.html(this.songs[this.nowPlayingIndex].toHTML());
 };
 
-// Playlist.prototype.renderDurationInElement = function (element) {
-//   element.html(this.songs[this.nowPlayingIndex].durationHTML());
-// };
-
 Playlist.prototype.renderAudioTag = function (element) {
   element.html(this.songs[this.nowPlayingIndex].addAudio());
 };
