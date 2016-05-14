@@ -3,23 +3,27 @@ var Song = function(title, artist, image, song) {
   this.title = title;
   this.artist = artist;
   this.image = image;
-  this.song = new Audio(song);
+  this.song = song;
   this.isPlaying = false;
 }
 
 // TODO: WILL PROBABLY REMOVE
 //play function
-Song.prototype.play = function () {
-  this.isPlaying = true;
-  console.log('Playing!');
-}
+// Song.prototype.play = function () {
+//   this.song.play();
+//   this.isPlaying = true;
+// }
 
 // TODO: WILL PROBABLY REMOVE
 //stop function
-Song.prototype.pause = function () {
-  this.isPlaying = false;
-  console.log('Paused!');
-};
+// Song.prototype.pause = function () {
+//   this.song.pause();
+//   this.isPlaying = false;
+// };
+
+// Song.prototype.metadata = function () {
+//
+// };
 
 //add to html
 Song.prototype.toHTML = function () {

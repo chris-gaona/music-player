@@ -6,14 +6,17 @@ function Playlist(songs) {
 
 //play song
 Playlist.prototype.play = function () {
-  var currentSong = this.songs[this.nowPlayingIndex].song;
-  currentSong.play();
+  // var currentSong = this.songs[this.nowPlayingIndex];
+  // currentSong.play();
+  // console.log(currentSong.duration);
+  console.log('Playing!');
 };
 
 //stop song
 Playlist.prototype.pause = function () {
-  var currentSong = this.songs[this.nowPlayingIndex].song;
-  currentSong.pause();
+  // var currentSong = this.songs[this.nowPlayingIndex];
+  // currentSong.pause();
+  console.log('Paused!');
 };
 
 //next song

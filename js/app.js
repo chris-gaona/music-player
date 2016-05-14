@@ -14,11 +14,13 @@ var audioElement = $('#audio-tag-container');
 
 //pass into playlist.js the element to render in
 playlist.renderInElement(playlistElement);
-// playlist.renderAudioTag(audioElement);
+playlist.renderAudioTag(audioElement);
 
 var playButton = $('#play');
 playButton.on('click', function() {
   togglePlayPause();
+  getMetaData();
+  timeUpdate();
 });
 
 function togglePlayPause() {
@@ -26,19 +28,20 @@ function togglePlayPause() {
   if (playButton.children().hasClass('fa-play')) {
     playButton.children().removeClass('fa-play');
     playButton.children().addClass('fa fa-pause');
-    // document.getElementById('audio-player').play();
-    playlist.play();
+    document.getElementById('audio-player').play();
+    // playlist.play();
 
   } else if (playButton.children().hasClass('fa-pause')) {
     playButton.children().removeClass('fa-pause');
     playButton.children().addClass('fa fa-play');
-    // document.getElementById('audio-player').pause();
-    playlist.pause();
+    document.getElementById('audio-player').pause();
+    // playlist.pause();
   }
 }
 
 function getMetaData() {
-  $('#audio-player').on('loadedmetadata', function() {
+  $('audio').on('loadedmetadata', function() {
+    console.log(this.duration);
     var minutes = Math.floor(this.duration / 60);
     var seconds = Math.floor(this.duration % 60);
 
@@ -76,7 +79,7 @@ var nextButton = $('#next');
 nextButton.on('click', function() {
   playlist.next();
   playlist.renderInElement(playlistElement);
-  // playlist.renderAudioTag(audioElement);
+  playlist.renderAudioTag(audioElement);
 
   if (playButton.children().hasClass('fa-pause')) {
     playButton.children().removeClass('fa-pause');
@@ -92,7 +95,7 @@ var prevButton = $('#previous');
 prevButton.on('click', function() {
   playlist.previous();
   playlist.renderInElement(playlistElement);
-  // playlist.renderAudioTag(audioElement);
+  playlist.renderAudioTag(audioElement);
 
   if (playButton.children().hasClass('fa-pause')) {
     playButton.children().removeClass('fa-pause');
