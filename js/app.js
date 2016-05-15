@@ -56,6 +56,7 @@ getMetaData();
 
 function timeUpdate() {
   $('#audio-player').on('timeupdate', function() {
+
     var minutes = Math.floor(this.duration / 60);
     var seconds = Math.floor(this.duration % 60);
 
@@ -74,6 +75,16 @@ function timeUpdate() {
 }
 timeUpdate();
 
+$('#seekbar').on('click', function(e) {
+  var value_clicked = e.offsetX * this.max / this.offsetWidth;
+  console.log(value_clicked);
+
+  var anotherNumber = document.getElementById('audio-player').duration * value_clicked;
+
+  console.log(anotherNumber);
+
+  document.getElementById('audio-player').currentTime = anotherNumber;
+});
 
 var nextButton = $('#next');
 nextButton.on('click', function() {
@@ -116,7 +127,3 @@ $('#volume-control').on('click', function() {
     document.getElementById('audio-player').volume = 1;
   }
 });
-
-// $('#volume').slider({
-//   orientation: "vertical"
-// });

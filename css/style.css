@@ -137,11 +137,10 @@ h1 a:hover {
   box-shadow: rgba(0, 0, 0, 0.1) 0 0 3px 1px inset;*/
 }
 
-.player .player-tracking #seekbar:before {
+.player .player-tracking .tooltip {
   display: none;
-  content: '02:12';
   position: absolute;
-  top: 10px;
+  bottom: -10px;
   left: 78px;
   padding: 4px 8px;
   background: #fff;
@@ -167,8 +166,8 @@ h1 a:hover {
   cursor: pointer;
 }
 
-.player .player-tracking #seekbar:hover:before {
-  display: block;
+.player .player-tracking #seekbar:hover .tooltip {
+  display: none;
 }
 
 /*#volume {

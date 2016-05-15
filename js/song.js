@@ -35,6 +35,6 @@ Song.prototype.toHTML = function () {
 };
 
 Song.prototype.addAudio = function () {
-  var htmlString = '<audio src="' + this.song + '" id="audio-player"></audio>';
+  var htmlString = '<audio src="' + this.song + '" id="audio-player" preload>Your browser does not support the audio element.</audio>';
   return htmlString;
 };
