@@ -1,8 +1,8 @@
 //add new songs to song.js
 var playlistArray = [
-  new Song("Good Good Father", "Chris Tomlin", "https://placeimg.com/640/480/any", "songs/Chris Tomlin - Good Good Father (Audio).mp3"),
+  new Song("Good Good Father", "Chris Tomlin", "https://placeimg.com/640/480/any", "songs/Chris Tomlin - Good Good Father (Audio).mp3", "Oh, I've heard a thousand stories of what they think you're like<br>But I've heard the tender<br>whisper of love in the dead of night<br>And you tell me that you're pleased<br>And that I'm never alone<br><br>You're a Good, Good Father<br>It's who you are, it's who you are, it's who you are<br>And I'm loved by you<br>It's who I am, it's who I am, it's who I am<br><br>Oh, and I've seen many searching for answers far and wide<br>But I know we're all searching<br>For answers only you provide<br>Cause you know just what we need<br>Before we say a word<br><br>You're a Good, Good Father<br>It's who you are, it's who you are, it's who you are<br>And I'm loved by you<br>It's who I am, it's who I am, it's who I am<br><br>Cause you are perfect in all of your ways<br>You are perfect in all of your ways<br>You are perfect in all of your ways to us<br>You are perfect in all of your ways<br>You are perfect in all of your ways<br>You are perfect in all of your ways to us<br><br>Oh, it's love so undeniable<br>I, I can hardly speak<br>Peace so unexplainable<br>I, I can hardly think<br><br>As you call me deeper still [x3]<br>Into love, love, love<br><br>[x3:]<br>You're a Good, Good Father<br>It's who you are, it's who you are, it's who you are<br>And I'm loved by you<br>It's who I am, it's who I am, it's who I am<br><br>You're a Good, Good Father<br>(You are perfect in all of your ways)<br>It's who you are, it's who you are, it's who you are<br>And I'm loved by you<br>(You are perfect in all of your ways)<br>It's who I am, it's who I am it's who I am"),
   new Song("Forgiven", "Jesus Culture", "https://placeimg.com/640/480/any", "songs/03 Forgiven.mp3"),
-  new Song("Come Away", "Jesus Culture", "https://placeimg.com/640/480/any", "songs/01 Come Away _ Let Me In.mp3")
+  new Song("Come Away", "Jesus Culture", "https://placeimg.com/640/480/any", "songs/01 Come Away _ Let Me In.mp3", "Come away with me, Come away with me<br>It's never too late, it's not too late<br>It's not too late for you<br><br>I have a plan for you<br>It's gonna be wild<br>It's gonna be great<br>It's gonna be full of me<br><br>Open up your heart and let me in")
 ];
 
 var playlist = new Playlist(playlistArray);
@@ -11,10 +11,12 @@ var playlist = new Playlist(playlistArray);
 var playlistElement = $('#player-container');
 var durationElement = $('#duration');
 var audioElementContainer = $('#audio-tag-container');
+var lyricsElementContainer = $('#lyrics');
 
 //pass into playlist.js the element to render in
 playlist.renderInElement(playlistElement);
 playlist.renderAudioTag(audioElementContainer);
+playlist.renderLyricsInElement(lyricsElementContainer);
 
 var playButton = $('#play');
 playButton.on('click', function() {
@@ -93,6 +95,7 @@ nextButton.on('click', function() {
   playlist.next();
   playlist.renderInElement(playlistElement);
   playlist.renderAudioTag(audioElementContainer);
+  playlist.renderLyricsInElement(lyricsElementContainer);
 
   if (playButton.children().hasClass('fa-pause')) {
     playButton.children().removeClass('fa-pause');
@@ -103,6 +106,8 @@ nextButton.on('click', function() {
   timeUpdate();
   $('#seekbar').attr("value", 0);
   playButton.click();
+
+  $('#lyrics, #lyrics .lyrics').removeClass('visible');
 });
 
 var prevButton = $('#previous');
@@ -110,6 +115,7 @@ prevButton.on('click', function() {
   playlist.previous();
   playlist.renderInElement(playlistElement);
   playlist.renderAudioTag(audioElementContainer);
+  playlist.renderLyricsInElement(lyricsElementContainer);
 
   if (playButton.children().hasClass('fa-pause')) {
     playButton.children().removeClass('fa-pause');
@@ -120,6 +126,8 @@ prevButton.on('click', function() {
   timeUpdate();
   $('#seekbar').attr("value", 0);
   playButton.click();
+
+  $('#lyrics, #lyrics .lyrics').removeClass('visible');
 });
 
 $('#volume-control').on('click', function() {
@@ -133,5 +141,5 @@ $('#volume-control').on('click', function() {
 });
 
 $('#expand').on('click', function() {
-  $('#lyrics, #lyrics p').toggleClass('visible');
+  $('#lyrics, #lyrics .lyrics').toggleClass('visible');
 });

@@ -1,9 +1,10 @@
 //create song object
-var Song = function(title, artist, image, song) {
+var Song = function(title, artist, image, song, lyrics) {
   this.title = title;
   this.artist = artist;
   this.image = image;
   this.song = song;
+  this.lyrics = lyrics;
   this.isPlaying = false;
 }
 
@@ -36,5 +37,10 @@ Song.prototype.toHTML = function () {
 
 Song.prototype.addAudio = function () {
   var htmlString = '<audio src="' + this.song + '" id="audio-player" preload>Your browser does not support the audio element.</audio>';
+  return htmlString;
+};
+
+Song.prototype.addLyrics = function () {
+  var htmlString = '<div class="lyrics">' + this.lyrics + '</div>';
   return htmlString;
 };
