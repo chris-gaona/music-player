@@ -41,7 +41,7 @@ function togglePlayPause() {
 
 function getMetaData() {
   $('audio').on('loadedmetadata', function() {
-    console.log(this.duration);
+    console.log(this.volume);
     var minutes = Math.floor(this.duration / 60);
     var seconds = Math.floor(this.duration % 60);
 
@@ -106,3 +106,17 @@ prevButton.on('click', function() {
   timeUpdate();
   $('#seekbar').attr("value", 0);
 });
+
+$('#volume-control').on('click', function() {
+  if ($(this).children().hasClass('fa-volume-up')) {
+    $(this).children().removeClass('fa-volume-up').addClass('fa-volume-off');
+    document.getElementById('audio-player').volume = 0;
+  } else {
+    $(this).children().removeClass('fa-volume-off').addClass('fa-volume-up');
+    document.getElementById('audio-player').volume = 1;
+  }
+});
+
+// $('#volume').slider({
+//   orientation: "vertical"
+// });

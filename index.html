@@ -3,6 +3,7 @@
   <head>
     <title>Media Player</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.2/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
     <link rel="stylesheet" href="css/style.css"/>
   </head>
   <body>
@@ -21,7 +22,8 @@
         <!-- <button type="button" id="button">Click Me</button> -->
       </div>
       <div class="player-controls">
-        <a href="#"><i class="fa fa-volume-up"></i></a>
+        <a href="#" id="volume-control"><i class="fa fa-volume-up"></i></a>
+        <div id="volume"></div>
 
         <a href="#" id="previous"><i class="fa fa-fast-backward"></i></a>
         <a href="#" id="play"><i class="fa fa-play"></i></a>
@@ -37,6 +39,7 @@
 
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
     <script src="js/playlist.js"></script>
     <script src="js/song.js"></script>
     <script src="js/app.js"></script>
