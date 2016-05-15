@@ -77,11 +77,8 @@ timeUpdate();
 
 $('#seekbar').on('click', function(e) {
   var value_clicked = e.offsetX * this.max / this.offsetWidth;
-  console.log(value_clicked);
 
   var anotherNumber = document.getElementById('audio-player').duration * value_clicked;
-
-  console.log(anotherNumber);
 
   document.getElementById('audio-player').currentTime = anotherNumber;
 });

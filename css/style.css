@@ -124,17 +124,23 @@ h1 a:hover {
 }
 
 .player .player-tracking #seekbar {
-  /*-webkit-appearance: none;
-  appearance: none;*/
+  -webkit-appearance: none;
+  appearance: none;
   position: relative;
-  top: 1px;
+  top: -1px;
   width: 220px;
-  /*height: 6px;
+  height: 6px;
+}
+
+progress[value]::-webkit-progress-bar {
+  background-color: #eee;
   border-radius: 3px;
-  background: #cccccc;
-  -moz-box-shadow: rgba(0, 0, 0, 0.1) 0 0 3px 1px inset;
-  -webkit-box-shadow: rgba(0, 0, 0, 0.1) 0 0 3px 1px inset;
-  box-shadow: rgba(0, 0, 0, 0.1) 0 0 3px 1px inset;*/
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25) inset;
+}
+
+.player .player-tracking #seekbar::-webkit-progress-value {
+  background-color: #88c388;
+  border-radius: 3px;
 }
 
 .player .player-tracking .tooltip {
