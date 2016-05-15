@@ -10,11 +10,11 @@ var playlist = new Playlist(playlistArray);
 //get element to place html string
 var playlistElement = $('#player-container');
 var durationElement = $('#duration');
-var audioElement = $('#audio-tag-container');
+var audioElementContainer = $('#audio-tag-container');
 
 //pass into playlist.js the element to render in
 playlist.renderInElement(playlistElement);
-playlist.renderAudioTag(audioElement);
+playlist.renderAudioTag(audioElementContainer);
 
 var playButton = $('#play');
 playButton.on('click', function() {
@@ -71,23 +71,28 @@ function timeUpdate() {
     $('#seekbar').attr("value", this.currentTime / this.duration);
     $('#start').html((moveMinutes + ':' + moveSeconds).toString());
     $('#end').html((minutes + ':' + seconds).toString());
+
+    if ($('#seekbar').prop('value') === 1) {
+      playButton.children().removeClass('fa-pause');
+      playButton.children().addClass('fa fa-play');
+      document.getElementById('audio-player').pause();
+    }
   });
 }
 timeUpdate();
 
 $('#seekbar').on('click', function(e) {
   var value_clicked = e.offsetX * this.max / this.offsetWidth;
+  var newValue = document.getElementById('audio-player').duration * value_clicked;
 
-  var anotherNumber = document.getElementById('audio-player').duration * value_clicked;
-
-  document.getElementById('audio-player').currentTime = anotherNumber;
+  document.getElementById('audio-player').currentTime = newValue;
 });
 
 var nextButton = $('#next');
 nextButton.on('click', function() {
   playlist.next();
   playlist.renderInElement(playlistElement);
-  playlist.renderAudioTag(audioElement);
+  playlist.renderAudioTag(audioElementContainer);
 
   if (playButton.children().hasClass('fa-pause')) {
     playButton.children().removeClass('fa-pause');
@@ -97,13 +102,14 @@ nextButton.on('click', function() {
   getMetaData();
   timeUpdate();
   $('#seekbar').attr("value", 0);
+  playButton.click();
 });
 
 var prevButton = $('#previous');
 prevButton.on('click', function() {
   playlist.previous();
   playlist.renderInElement(playlistElement);
-  playlist.renderAudioTag(audioElement);
+  playlist.renderAudioTag(audioElementContainer);
 
   if (playButton.children().hasClass('fa-pause')) {
     playButton.children().removeClass('fa-pause');
@@ -113,6 +119,7 @@ prevButton.on('click', function() {
   getMetaData();
   timeUpdate();
   $('#seekbar').attr("value", 0);
+  playButton.click();
 });
 
 $('#volume-control').on('click', function() {

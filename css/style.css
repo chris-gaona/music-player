@@ -157,17 +157,6 @@ progress[value]::-webkit-progress-bar {
   box-shadow: rgba(0, 0, 0, 0.1) 0 0 3px 1px;
 }
 
-/*.player .player-tracking .player-tracking-bar #player-inner-bar {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 0%;
-  height: 6px;
-  padding: 0;
-  border-radius: 3px;
-  background: #85c2e0;
-}*/
-
 .player .player-tracking #seekbar:hover {
   cursor: pointer;
 }
@@ -205,3 +194,13 @@ progress[value]::-webkit-progress-bar {
   outline: none;
   border: none;
 }*/
+
+#lyrics {
+  padding: 10px;
+}
+
+#lyrics p {
+  text-align: center;
+  margin: 0;
+  padding: 2px;
+}
