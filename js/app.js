@@ -131,3 +131,7 @@ $('#volume-control').on('click', function() {
     document.getElementById('audio-player').volume = 1;
   }
 });
+
+$('#expand').on('click', function() {
+  $('#lyrics, #lyrics p').toggleClass('visible');
+});
