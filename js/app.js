@@ -31,13 +31,11 @@ function togglePlayPause() {
     playButton.children().removeClass('fa-play');
     playButton.children().addClass('fa fa-pause');
     document.getElementById('audio-player').play();
-    // playlist.play();
 
   } else if (playButton.children().hasClass('fa-pause')) {
     playButton.children().removeClass('fa-pause');
     playButton.children().addClass('fa fa-play');
     document.getElementById('audio-player').pause();
-    // playlist.pause();
   }
 }
 
