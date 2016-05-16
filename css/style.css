@@ -84,14 +84,18 @@ h1 a:hover {
   float: left;
 }
 
-.player .player-controls a.play {
+/*.player .player-controls a.play {
   font-size: 20px;
   color: #999;
-}
+}*/
 
 .player .player-controls a:first-child {
   border-right: 1px solid #ddd;
   margin-right: 34px;
+}
+
+.player .player-controls a:nth-child(4) {
+  font-size: 25px;
 }
 
 .player .player-controls a:last-child {
@@ -157,17 +161,6 @@ progress[value]::-webkit-progress-bar {
   box-shadow: rgba(0, 0, 0, 0.1) 0 0 3px 1px;
 }
 
-/*.player .player-tracking .player-tracking-bar #player-inner-bar {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 0%;
-  height: 6px;
-  padding: 0;
-  border-radius: 3px;
-  background: #85c2e0;
-}*/
-
 .player .player-tracking #seekbar:hover {
   cursor: pointer;
 }
@@ -205,3 +198,49 @@ progress[value]::-webkit-progress-bar {
   outline: none;
   border: none;
 }*/
+
+#lyrics {
+  padding: 0;
+  border-bottom: 1px solid #ddd;
+  font-size: 16px;
+  color: #666;
+  overflow: auto;
+  height: 0;
+  transition: 0.3s;
+}
+
+#lyrics.visible {
+  padding: 15px;
+  height: 150px;
+}
+
+#lyrics .lyrics {
+  text-align: center;
+  margin: 0;
+  padding: 2px;
+  opacity: 0;
+}
+
+#lyrics .lyrics.visible {
+  -webkit-animation: fadeIn 0.7s forwards; /* Safari 4+ */
+  -moz-animation:    fadeIn 0.7s forwards; /* Fx 5+ */
+  -o-animation:      fadeIn 0.7s forwards; /* Opera 12+ */
+  animation:         fadeIn 0.7s forwards; /* IE 10+, Fx 29+ */
+}
+
+@-webkit-keyframes fadeIn {
+  0%    { opacity: 0; }
+  100%  { opacity: 1; }
+}
+@-moz-keyframes fadeIn {
+  0%    { opacity: 0; }
+  100%  { opacity: 1; }
+}
+@-o-keyframes fadeIn {
+  0%    { opacity: 0; }
+  100%  { opacity: 1; }
+}
+@keyframes fadeIn {
+  0%    { opacity: 0; }
+  100%  { opacity: 1; }
+}
