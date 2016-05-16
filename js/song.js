@@ -41,6 +41,13 @@ Song.prototype.addAudio = function () {
 };
 
 Song.prototype.addLyrics = function () {
-  var htmlString = '<div class="lyrics">' + this.lyrics + '</div>';
+  var htmlString;
+
+  if (this.lyrics === undefined) {
+    console.log('true');
+    htmlString = "<div class='lyrics'>Hmmm...there aren\'t any words in this song I guess!</div>";
+  } else {
+    htmlString = '<div class="lyrics">' + this.lyrics + '</div>';
+  }
   return htmlString;
 };
