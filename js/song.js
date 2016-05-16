@@ -8,24 +8,6 @@ var Song = function(title, artist, image, song, lyrics) {
   this.isPlaying = false;
 }
 
-// TODO: WILL PROBABLY REMOVE
-//play function
-// Song.prototype.play = function () {
-//   this.song.play();
-//   this.isPlaying = true;
-// }
-
-// TODO: WILL PROBABLY REMOVE
-//stop function
-// Song.prototype.pause = function () {
-//   this.song.pause();
-//   this.isPlaying = false;
-// };
-
-// Song.prototype.metadata = function () {
-//
-// };
-
 //add to html
 Song.prototype.toHTML = function () {
   var htmlString = '<img src="' + this.image + '">';

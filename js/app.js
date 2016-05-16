@@ -31,13 +31,11 @@ function togglePlayPause() {
     playButton.children().removeClass('fa-play');
     playButton.children().addClass('fa fa-pause');
     document.getElementById('audio-player').play();
-    // playlist.play();
 
   } else if (playButton.children().hasClass('fa-pause')) {
     playButton.children().removeClass('fa-pause');
     playButton.children().addClass('fa fa-play');
     document.getElementById('audio-player').pause();
-    // playlist.pause();
   }
 }
 
@@ -47,7 +45,7 @@ function getMetaData() {
     var minutes = Math.floor(this.duration / 60);
     var seconds = Math.floor(this.duration % 60);
 
-    if (minutes < 10) {minutes   = "0" + minutes;}
+    if (minutes < 10) {minutes = "0" + minutes;}
     if (seconds < 10) {seconds = "0" + seconds;}
 
     $('#start').html('00:00');
@@ -59,20 +57,14 @@ getMetaData();
 function timeUpdate() {
   $('#audio-player').on('timeupdate', function() {
 
-    var minutes = Math.floor(this.duration / 60);
-    var seconds = Math.floor(this.duration % 60);
-
     var moveMinutes = Math.floor(this.currentTime / 60);
     var moveSeconds = Math.floor(this.currentTime % 60);
 
-    if (minutes < 10) {minutes   = "0" + minutes;}
-    if (seconds < 10) {seconds = "0" + seconds;}
-    if (moveMinutes < 10) {moveMinutes   = "0" + moveMinutes;}
+    if (moveMinutes < 10) {moveMinutes = "0" + moveMinutes;}
     if (moveSeconds < 10) {moveSeconds = "0" + moveSeconds;}
 
     $('#seekbar').attr("value", this.currentTime / this.duration);
     $('#start').html((moveMinutes + ':' + moveSeconds).toString());
-    $('#end').html((minutes + ':' + seconds).toString());
 
     if ($('#seekbar').prop('value') === 1) {
       playButton.children().removeClass('fa-pause');
