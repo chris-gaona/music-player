@@ -129,26 +129,8 @@ progress[value]::-webkit-progress-bar {
   border-radius: 3px;
 }
 
-.player .player-tracking .tooltip {
-  display: none;
-  position: absolute;
-  bottom: -10px;
-  left: 78px;
-  padding: 4px 8px;
-  background: #fff;
-  font-size: 10px;
-  color: #aaa;
-  -moz-box-shadow: rgba(0, 0, 0, 0.1) 0 0 3px 1px;
-  -webkit-box-shadow: rgba(0, 0, 0, 0.1) 0 0 3px 1px;
-  box-shadow: rgba(0, 0, 0, 0.1) 0 0 3px 1px;
-}
-
 .player .player-tracking #seekbar:hover {
   cursor: pointer;
-}
-
-.player .player-tracking #seekbar:hover .tooltip {
-  display: none;
 }
 
 #volume-container {
