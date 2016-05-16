@@ -41,7 +41,7 @@ function togglePlayPause() {
 
 function getMetaData() {
   $('audio').on('loadedmetadata', function() {
-    console.log(this.volume);
+  
     var minutes = Math.floor(this.duration / 60);
     var seconds = Math.floor(this.duration % 60);
 
@@ -134,7 +134,6 @@ var volumeChange;
 $('#volume').on('slide', function ( event, ui ) {
   volumeChange = $('#volume').slider( "value" );
   newVolume = volumeChange / 100;
-  console.log(newVolume);
 
   document.getElementById('audio-player').volume = newVolume;
 
