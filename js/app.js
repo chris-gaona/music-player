@@ -90,8 +90,7 @@ nextButton.on('click', function() {
   playlist.renderLyricsInElement(lyricsElementContainer);
 
   if (playButton.children().hasClass('fa-pause')) {
-    playButton.children().removeClass('fa-pause');
-    playButton.children().addClass('fa fa-play');
+    playButton.children().removeClass('fa-pause').addClass('fa-play');
   }
 
   getMetaData();
@@ -110,8 +109,7 @@ prevButton.on('click', function() {
   playlist.renderLyricsInElement(lyricsElementContainer);
 
   if (playButton.children().hasClass('fa-pause')) {
-    playButton.children().removeClass('fa-pause');
-    playButton.children().addClass('fa fa-play');
+    playButton.children().removeClass('fa-pause').addClass('fa-play');
   }
 
   getMetaData();
@@ -126,10 +124,38 @@ $('#volume-control').on('click', function() {
   if ($(this).children().hasClass('fa-volume-up')) {
     $(this).children().removeClass('fa-volume-up').addClass('fa-volume-off');
     document.getElementById('audio-player').volume = 0;
+    $('#volume').slider( "option", "value", 0 );
   } else {
     $(this).children().removeClass('fa-volume-off').addClass('fa-volume-up');
     document.getElementById('audio-player').volume = 1;
+    $('#volume').slider( "option", "value", 100 );
   }
+});
+
+$('#volume-control').hover(function() {
+  $('#volume-container').toggleClass('visible');
+});
+
+$('#volume').slider({
+  orientation: 'vertical',
+  min: 0,
+  max: 100,
+  value: 100,
+  animation: true
+});
+
+$('#volume').on('slide', function ( event, ui ) {
+  var volumeChange = $('#volume').slider( "value" );
+  var newVolume = volumeChange / 100;
+
+  document.getElementById('audio-player').volume = newVolume;
+
+  if (newVolume === 0) {
+    $('#volume-control').children().removeClass('fa-volume-up').addClass('fa-volume-off');
+  } else {
+    $('#volume-control').children().removeClass('fa-volume-off').addClass('fa-volume-up');
+  }
+
 });
 
 $('#expand').on('click', function() {
