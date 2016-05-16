@@ -41,7 +41,7 @@ function togglePlayPause() {
 
 function getMetaData() {
   $('audio').on('loadedmetadata', function() {
-  
+
     var minutes = Math.floor(this.duration / 60);
     var seconds = Math.floor(this.duration % 60);
 
@@ -144,6 +144,19 @@ $('#volume').on('slide', function ( event, ui ) {
   }
 });
 
+$('#volume').on('slidechange', function ( event, ui ) {
+  volumeChange = $('#volume').slider( "value" );
+  newVolume = volumeChange / 100;
+
+  document.getElementById('audio-player').volume = newVolume;
+
+  if (newVolume === 0) {
+    $('#volume-control').children().removeClass('fa-volume-up').addClass('fa-volume-off');
+  } else {
+    $('#volume-control').children().removeClass('fa-volume-off').addClass('fa-volume-up');
+  }
+});
+
 $('#volume-control').on('click', function() {
   if ($(this).children().hasClass('fa-volume-up')) {
     $(this).children().removeClass('fa-volume-up').addClass('fa-volume-off');
@@ -151,13 +164,31 @@ $('#volume-control').on('click', function() {
     $('#volume').slider( "option", "value", 0 );
   } else {
     $(this).children().removeClass('fa-volume-off').addClass('fa-volume-up');
-    document.getElementById('audio-player').volume = newVolume;
-    $('#volume').slider( "option", "value", volumeChange );
+    if (newVolume === 0) {
+      document.getElementById('audio-player').volume = .5;
+      $('#volume').slider( "option", "value", 50 );
+    } else {
+      document.getElementById('audio-player').volume = newVolume;
+      $('#volume').slider( "option", "value", volumeChange );
+    }
+
   }
 });
 
 $('#volume-control').hover(function() {
   $('#volume-container').toggleClass('visible');
+
+  if ($('#lyrics').hasClass('visible')) {
+    $('#volume-container').css('top', '235px');
+    $('#volume-container.visible').css('top', '240px');
+  } else {
+    $('#volume-container').css('top', '55px');
+    $('#volume-container.visible').css('top', '60px');
+  }
+});
+
+$('#volume-container').on('click', function(e) {
+  e.stopPropagation();
 });
 
 $('#expand').on('click', function() {
