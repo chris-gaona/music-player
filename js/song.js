@@ -27,7 +27,7 @@ Song.prototype.addLyrics = function () {
 
   if (this.lyrics === undefined) {
     console.log('true');
-    htmlString = "<div class='lyrics'>Hmmm...there aren\'t any words in this song I guess!</div>";
+    htmlString = '<div class="lyrics">Hmmm...there aren\'t any words in this song I guess!</div>';
   } else {
     htmlString = '<div class="lyrics">' + this.lyrics + '</div>';
   }
