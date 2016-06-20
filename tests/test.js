@@ -26,6 +26,7 @@ describe('song.js', function () {
 
   describe('toHTML function', function () {
     it('should return a string with the song content', function () {
+      expect(song).to.be.an('object').and.to.have.all.keys('artist', 'image', 'isPlaying', 'lyrics', 'song', 'title');
       expect(song.toHTML()).to.equal('<img src="https://placeimg.com/640/480/any"><p>Forgiven - <span>Jesus Culture</span></p>');
     });
   });
