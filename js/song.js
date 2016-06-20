@@ -33,3 +33,9 @@ Song.prototype.addLyrics = function () {
   }
   return htmlString;
 };
+
+Song.prototype.getTotal = function () {
+  return 0;
+};
+
+module.exports = Song;
