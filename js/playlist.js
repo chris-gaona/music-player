@@ -32,3 +32,5 @@ Playlist.prototype.renderAudioTag = function (element) {
 Playlist.prototype.renderLyricsInElement = function (element) {
   element.html(this.songs[this.nowPlayingIndex].addLyrics());
 };
+
+module.exports = Playlist;
